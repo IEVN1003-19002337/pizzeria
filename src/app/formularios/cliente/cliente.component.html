@@ -1,0 +1,60 @@
+<form [formGroup]="pedidoForm" class="max-w-lg mx-auto p-6 bg-white rounded shadow-md">
+  <h1 class="text-red-500 font-bold text-4xl text-center mb-4">Pizzería</h1>
+  
+  <div class="grid grid-cols-2 gap-4">
+    <div class="col-span-2">
+      <label for="nombre" class="block text-gray-700">Nombre</label>
+      <input type="text" formControlName="nombre" id="nombre" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    
+    <div class="col-span-2">
+      <label for="direccion" class="block text-gray-700">Dirección</label>
+      <input type="text" formControlName="direccion" id="direccion" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    
+    <div class="col-span-2 sm:col-span-1">
+      <label for="telefono" class="block text-gray-700">Teléfono</label>
+      <input type="text" formControlName="telefono" id="telefono" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+
+    <div class="col-span-2 sm:col-span-1">
+      <label for="num_pizzas" class="block text-gray-700">Num. de Pizzas</label>
+      <input type="number" formControlName="num_pizzas" id="num_pizzas" class="w-full p-2 border border-gray-300 rounded">
+    </div>
+    
+    <div class="col-span-2">
+      <h2 class="text-lg font-semibold mt-4">Tamaño Pizza</h2>
+      <div class="flex gap-4">
+        <label class="flex items-center">
+          <input type="radio" formControlName="tamano" value="chica" class="mr-2"> Chica $40
+        </label>
+        <label class="flex items-center">
+          <input type="radio" formControlName="tamano" value="mediana" class="mr-2"> Mediana $80
+        </label>
+        <label class="flex items-center">
+          <input type="radio" formControlName="tamano" value="grande" class="mr-2"> Grande $120
+        </label>
+      </div>
+    </div>
+    
+    <div class="col-span-2">
+      <h2 class="text-lg font-semibold mt-4">Ingredientes</h2>
+      <div class="flex gap-4">
+        <label class="flex items-center">
+          <input type="checkbox" [formControl]="getFormControl(0)" class="mr-2"> Jamón (+$10)
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" [formControl]="getFormControl(1)" class="mr-2"> Piña (+$10)
+        </label>
+        <label class="flex items-center">
+          <input type="checkbox" [formControl]="getFormControl(2)" class="mr-2"> Champiñones (+$10)
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+  <button type="button" (click)="agregarPizza()" class="mt-6 w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Agregar</button>
+</form>
+
+
